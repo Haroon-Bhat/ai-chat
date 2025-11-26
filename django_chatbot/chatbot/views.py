@@ -12,28 +12,6 @@ from transformers import pipeline
 
 
 
-
-
-#     try: 
-#         response = client.chat.completions.create(
-#         #model="gpt-3.5-turbo",
-#         model="gpt-oss-120b",
-#         messages=[
-#                 {"role": "system", "content": "You are an helpful assistant."},
-#                 {"role": "user", "content": message},
-#             ],
-#         max_tokens=100,
-#         temperature=0.7,
-#     )
-        
-#         answer = response.choices[0].message.content.strip()
-#         return answer
-#     except:
-#         return "API quota exceeded. Please try again later."
-
-# Initialize Hugging Face conversational pipeline once (CPU usage)
-#chatbot_pipeline = pipeline("text-generation", model="microsoft/DialoGPT-medium")
-
 chatbot_pipeline = pipeline("text2text-generation", model="facebook/blenderbot-400M-distill")
 
 conversations = {}
@@ -50,9 +28,6 @@ def ask_huggingface(message,user_id):
         return answer
     except Exception:
         return "Sorry, I couldn't process your message at the moment."
-   
-
-        
    
 
     
